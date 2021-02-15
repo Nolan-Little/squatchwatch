@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Squatch Watch | Researchers and Monsters</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <style>
+    input {
+      margin: 0 .5rem 0 0
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/305ae13364.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Squatch Watch
+        </h1>
+        <h2 class="subtitle">
+          Visitors: <span id="counter">???</span>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tables container">
+    <div class="columns">
+      <div class="column">
+        <div class="container">
+          <h2 class="title">Reasearchers</h2>
+          <div class="field column is-three-quarters columns">
+            <input id="first-name" class="field input column is-one-third" type="text" placeholder="First Name">
+            <input id="last-name" class="field input column is-one-third" type="text" placeholder="Last Name">
+            <button id="add-researcher" class="button is-success">Add</button>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th id="researcher-id-header">ID</th>
+                <th id="researcher-first-name-header">First name</th>
+                <th id="researcher-last-name-header">Last name</th>
+              </tr>
+            </thead>
+
+            <tbody id="researchers-data">
+              <tr>
+                <td><img src="loading.gif" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column">
+        <div class="container">
+          <h2 class="title">Monsters</h2>
+          <div class="field column is-three-quarters columns">
+            <input required id="monster-name" class="field input column is-one-third" type="text" placeholder="Name">
+            <input required id="monster-codename" class="field input column is-one-third" type="text"
+              placeholder="Code Name">
+            <button id="add-monster" class="button is-success">Add</button>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th id="monster-id-header">ID</th>
+                <th id="monster-name-header">Name</th>
+                <th id="monster-codename-header">Codename</th>
+              </tr>
+            </thead>
+
+            <tbody id="monsters-data">
+              <tr>
+                <td><img src="loading.gif" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="main.js"></script>
+</body>
+
+</html>
