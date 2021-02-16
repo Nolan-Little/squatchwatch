@@ -1,19 +1,22 @@
-const UNIQUE_HASH = "654dee9345b9";
-const URL = `http://${UNIQUE_HASH}.ngrok.io`
-const MONSTERS = "monsters";
-const RESEARCHERS = "researchers";
-
+const UNIQUE_HASH = "654dee9345b9"; //TODO: replace with provided unique hash
+const ENDPOINT_URL = `http://${UNIQUE_HASH}.ngrok.io`
 
 // Given the user clicks the add button for either resource
 // Then the table data should refresh
+// So that the new entry is immediately displayed
 
 // Given the user clicks the add button for either resource
 // When either submission field for that resource is blank
 // Then don't add the entry and notify the user of the validation error
+// So that empty rows of data cannot be saved
 
 // Given the user clicks the header of a column of either resource
 // Then the table should refresh displayed in ascending order of the respective column data
+// So that the user can sort to find their entry more easily
 //  (Bonus): ability to click on header a second time to display descending
+
+const MONSTERS = "monsters";
+const RESEARCHERS = "researchers";
 
 document.addEventListener("DOMContentLoaded", function () {
   updateVisitorCount();
@@ -44,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function updateVisitorCount() {
-  fetch(`${URL}/visitors`)
+  fetch(`${ENDPOINT_URL}/visitors`)
     .then((res) => res.json())
     .then(data => {
       let dataPlus = data["count"] + 1;
-      fetch(`${URL}/visitors`, {
+      fetch(`${ENDPOINT_URL}/visitors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -65,7 +68,7 @@ function updateVisitorCount() {
 
 
 function getTableData(type) {
-  return fetch(`${URL}/${type}`);
+  return fetch(`${ENDPOINT_URL}/${type}`);
 }
 
 
@@ -112,7 +115,7 @@ function monsterRowFactory(data) {
 
 
 function addResource(type, data) {
-  fetch(`${URL}/${type}`, {
+  fetch(`${ENDPOINT_URL}/${type}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
